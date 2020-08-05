@@ -20,6 +20,16 @@
                         <textarea class="form-control" id="idDescription" cols="30" rows="10" name="description">a</textarea>
                     </div>
 
+                    <div id="app1">
+                        <add-parameter-component :parameters="{{json_encode($parameters)}}"></add-parameter-component>
+                    </div>
+
+                    <div id="app2">
+                        <add-convenience-component :conveniences="{{json_encode($conveniences)}}"></add-convenience-component>
+                    </div>
+
+
+
                     <div class="form-group">
                         <label>Добавить фотографии</label> <br>
                         <input type="file" name="images[]" accept="image/jpeg,image/png,image/gif"><input type="button" class="deleteInputForNewImage" value="Удалить">
@@ -72,7 +82,9 @@
                  $(this.nextSibling).remove();
                  this.remove();
              });
+
         </script>
+
     </div>
 
 

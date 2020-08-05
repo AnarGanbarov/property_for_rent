@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Convenience;
 use App\House;
+use App\Parameter;
 use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,19 +14,38 @@ class HouseController extends Controller
     public function getAll(Request $request)
     {
         $allHouses = House::all()->sortBy("create_at");
+        $array = [];
+
+        foreach ($allHouses as $oneHouse)
+        {
+            $elemForArray = $oneHouse->toArray();
+            $elemForArray['images'] = $oneHouse->photos()->get()->toArray();
+
+            $array[] = $elemForArray;
+        }
+
 
         return view('index', [
-            'allHouses' => $allHouses
+            'allHouses' => $array
         ]);
     }
 
     public function getThisHouse(Request $request)
     {
-        $thisHouses = House::all()
-            ->where('id', $request->id);
 
-        return view('index', [
-            '$thisHouses' => $thisHouses
+        $thisHouses = House::find($request->id);
+        $parameters = Parameter::all()->toArray();
+        $conveniences = Convenience::all()->toArray();
+        $house['parameters'] = $thisHouses->parameters()->get()->toArray();
+        $house['conveniences'] = $thisHouses->conveniences()->get()->toArray();
+
+        $house = $thisHouses->toArray();
+        $house['images'] = $thisHouses->photos()->get()->toArray();
+
+        return view('lookThisHouse', [
+            'house' => $house,
+            'parameters' => $parameters,
+            'conveniences' => $conveniences
         ]);
     }
 

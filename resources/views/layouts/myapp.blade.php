@@ -18,18 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 {{--    <script src="http://code.jquery.com/jquery-3.5.1.js"></script>--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-        table, td, th {
-            border: 1px solid black;
-        }
+    <script defer src="../js/js_awesome/all.js"></script>
 
-        table {
-            border-collapse: collapse;
-        }
-    </style>
+
 </head>
 <body>
     <div id="app">

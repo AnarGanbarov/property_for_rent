@@ -1,0 +1,29 @@
+
+.select_span_elem{
+    border-radius: 15px;
+    padding: 6px;
+    background-color: #56f;
+    color: #fff;
+}
+
+.not_select_span_elem{
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 6px;
+    background-color: #fff;
+    color: #ccc;
+}
+.not_select_span_elem:hover{
+    border: 1px solid #56f;
+    background-color: #56f;
+    color: #fff;
+}
+
+.element_span, .element_span_select{
+    display: inline-block;
+    margin: 5px;
+}
+.element_span a, .element_span_select a{
+    text-decoration: none;
+    color: #fff;
+}
