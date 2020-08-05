@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb3b08ca-b49a-409e-ae79-4b664413853b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/property_for_sale.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/property_for_sale.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HouseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HouseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_05_062101_create_houses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_05_062101_create_houses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/my.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/my.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/AddConvenienceComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/AddParameterComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/AddParameterComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/addHouse.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/addHouse.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/myapp.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/myapp.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lookThisHouse.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lookThisHouse.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +181,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596608316052</updated>
       <workItem from="1596608318635" duration="33548000" />
-      <workItem from="1596650475122" duration="12594000" />
+      <workItem from="1596650475122" duration="12841000" />
     </task>
     <servers />
   </component>
