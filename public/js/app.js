@@ -1899,31 +1899,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AddConvenienceComponent.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AddConvenienceComponent.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AddParameterComponent.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AddParameterComponent.vue?vue&type=script&lang=js& ***!
@@ -1966,17 +1941,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['parameters'],
+  props: ['parameters', 'conveniences'],
   data: function data() {
-    // тут объявляются переменные.
-    // если тут не объявлять переменную, то переменные будут статическими, а не динамическими.
-    // Это значит, что они не будут обновляться в тегах в коде html.
     return {
       'current_parameter_name': '',
       'all_parameters': [],
       'look_parameters': [],
-      'select_parameters': []
+      'select_parameters': [],
+      'current_convenience_name': '',
+      'all_conveniences': [],
+      'look_conveniences': [],
+      'select_conveniences': []
     };
   },
   methods: {
@@ -1986,11 +1994,17 @@ __webpack_require__.r(__webpack_exports__);
     },
     clickForDeleteElement: function clickForDeleteElement(select) {
       this.select_parameters.pop(select);
+    },
+    clickForAddElementConveniences: function clickForAddElementConveniences(parameter) {
+      // console.log(parameter);
+      this.select_conveniences.push(parameter);
+    },
+    clickForDeleteElementConveniences: function clickForDeleteElementConveniences(select) {
+      this.select_conveniences.pop(select);
     }
   },
   mounted: function mounted() {
-    console.log(this.parameters);
-
+    // console.log(this.parameters);
     for (var i = 0; i < this.parameters.length; i++) {
       this.all_parameters.push({
         "id": this.parameters[i]['id'],
@@ -1998,7 +2012,16 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
 
-    this.look_parameters = this.all_parameters.slice(0, 10); // взять первые 10 элементов
+    this.look_parameters = this.all_parameters.slice(0, 20); // взять первые 20 элементов
+
+    for (var ii = 0; ii < this.conveniences.length; ii++) {
+      this.all_conveniences.push({
+        "id": this.conveniences[ii]['id'],
+        "name": this.conveniences[ii]['name']
+      });
+    }
+
+    this.look_conveniences = this.all_conveniences.slice(0, 20); // взять первые 20 элементов
   },
   watch: {
     current_parameter_name: function current_parameter_name() {
@@ -2015,6 +2038,22 @@ __webpack_require__.r(__webpack_exports__);
         }
       } else {
         this.look_parameters = this.all_parameters;
+      }
+    },
+    current_convenience_name: function current_convenience_name() {
+      if (this.current_convenience_name != "") {
+        this.look_conveniences = [];
+
+        for (var i = 0; i < this.conveniences.length; i++) {
+          if (this.conveniences[i]['name'].indexOf(this.current_convenience_name) + 1) {
+            this.look_conveniences.push({
+              "id": this.conveniences[i]['id'],
+              "name": this.conveniences[i]['name']
+            });
+          }
+        }
+      } else {
+        this.look_conveniences = this.all_conveniences;
       }
     }
   }
@@ -37622,39 +37661,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AddConvenienceComponent.vue?vue&type=template&id=427a6eec&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AddConvenienceComponent.vue?vue&type=template&id=427a6eec& ***!
-  \**************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row " })
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AddParameterComponent.vue?vue&type=template&id=5d3811fa&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AddParameterComponent.vue?vue&type=template&id=5d3811fa& ***!
@@ -37672,8 +37678,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row " }, [
+      _c("div", { staticStyle: { width: "100%" } }),
+      _vm._v(" "),
       _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
-        _vm._v("Название параметра:")
+        _vm._v("Поиск по параметрам:")
       ]),
       _vm._v(" "),
       _c("input", {
@@ -37706,6 +37714,8 @@ var render = function() {
         "div",
         { staticClass: "div_with_all", staticStyle: { width: "100%" } },
         [
+          _c("br"),
+          _vm._v(" "),
           _c("h6", [_vm._v("Все параметры")]),
           _vm._v(" "),
           _vm._l(_vm.look_parameters, function(parameter) {
@@ -37729,12 +37739,7 @@ var render = function() {
                       _vm._v(_vm._s(parameter["name"]) + " ")
                     ])
                   ]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "hidden", name: "skill[]" },
-                  domProps: { value: parameter["id"] }
-                })
+                )
               ]
             )
           })
@@ -37746,10 +37751,10 @@ var render = function() {
         "div",
         {
           staticClass: "div_with_selected",
-          staticStyle: { "margin-top": "10px" }
+          staticStyle: { "margin-top": "10px", "margin-bottom": "30px" }
         },
         [
-          _c("h6", [_vm._v("Выбранные навыки")]),
+          _c("h6", [_vm._v("Выбранные параметры")]),
           _vm._v(" "),
           _vm._l(_vm.select_parameters, function(select) {
             return _c(
@@ -37765,17 +37770,135 @@ var render = function() {
               },
               [
                 _c("span", { staticClass: "select_span_elem" }, [
-                  _vm._v(_vm._s(select["name"]) + "\n                    "),
+                  _vm._v(_vm._s(select["name"]) + "\n                        "),
                   _c("i", { staticClass: "fas fa-times" })
                 ]),
                 _vm._v(" "),
                 _c("input", {
-                  attrs: { type: "hidden", name: "skill[]" },
+                  attrs: { type: "hidden", name: "parameters[]" },
                   domProps: { value: select["id"] }
                 })
               ]
             )
           })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticStyle: { display: "block", clear: "both", width: "100%" } },
+        [
+          _c("label", { attrs: { for: "exampleFormControlSelect2" } }, [
+            _vm._v("Поиск по удобствам:")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.current_convenience_name,
+                expression: "current_convenience_name"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              id: "exampleFormControlSelect2",
+              placeholder: ""
+            },
+            domProps: { value: _vm.current_convenience_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.current_convenience_name = $event.target.value
+              }
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "div_with_all", staticStyle: { width: "100%" } },
+        [
+          _c("br"),
+          _vm._v(" "),
+          _c("h6", [_vm._v("Все параметры")]),
+          _vm._v(" "),
+          _vm._l(_vm.look_conveniences, function(parameter) {
+            return _c(
+              "div",
+              {
+                staticClass: "element_span",
+                attrs: { id: parameter["id"] },
+                on: {
+                  click: function($event) {
+                    return _vm.clickForAddElementConveniences(parameter)
+                  }
+                }
+              },
+              [
+                _c(
+                  "a",
+                  { attrs: { href: "/", onclick: "event.preventDefault()" } },
+                  [
+                    _c("span", { staticClass: "not_select_span_elem" }, [
+                      _vm._v(_vm._s(parameter["name"]) + " ")
+                    ])
+                  ]
+                )
+              ]
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "div_with_selected",
+              staticStyle: { "margin-top": "10px", "margin-bottom": "30px" }
+            },
+            [
+              _c("h6", [_vm._v("Выбранные параметры")]),
+              _vm._v(" "),
+              _vm._l(_vm.select_conveniences, function(select) {
+                return _c(
+                  "div",
+                  {
+                    staticClass: "element_span_select",
+                    attrs: { id: select["id"] },
+                    on: {
+                      click: function($event) {
+                        return _vm.clickForDeleteElementConveniences(select)
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "select_span_elem" }, [
+                      _vm._v(
+                        _vm._s(select["name"]) + "\n                        "
+                      ),
+                      _c("i", { staticClass: "fas fa-times" })
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: { type: "hidden", name: "conveniences[]" },
+                      domProps: { value: select["id"] }
+                    })
+                  ]
+                )
+              })
+            ],
+            2
+          )
         ],
         2
       )
@@ -50024,7 +50147,6 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-Vue.component('add-convenience-component', __webpack_require__(/*! ./components/AddConvenienceComponent.vue */ "./resources/js/components/AddConvenienceComponent.vue")["default"]);
 Vue.component('add-parameter-component', __webpack_require__(/*! ./components/AddParameterComponent.vue */ "./resources/js/components/AddParameterComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -50034,9 +50156,6 @@ Vue.component('add-parameter-component', __webpack_require__(/*! ./components/Ad
 
 var app = new Vue({
   el: '#app'
-});
-var app2 = new Vue({
-  el: '#app2'
 });
 
 /***/ }),
@@ -50083,75 +50202,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/components/AddConvenienceComponent.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/AddConvenienceComponent.vue ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AddConvenienceComponent_vue_vue_type_template_id_427a6eec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddConvenienceComponent.vue?vue&type=template&id=427a6eec& */ "./resources/js/components/AddConvenienceComponent.vue?vue&type=template&id=427a6eec&");
-/* harmony import */ var _AddConvenienceComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddConvenienceComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AddConvenienceComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _AddConvenienceComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AddConvenienceComponent_vue_vue_type_template_id_427a6eec___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AddConvenienceComponent_vue_vue_type_template_id_427a6eec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/AddConvenienceComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/AddConvenienceComponent.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/AddConvenienceComponent.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddConvenienceComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AddConvenienceComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AddConvenienceComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddConvenienceComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/AddConvenienceComponent.vue?vue&type=template&id=427a6eec&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/AddConvenienceComponent.vue?vue&type=template&id=427a6eec& ***!
-  \********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddConvenienceComponent_vue_vue_type_template_id_427a6eec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AddConvenienceComponent.vue?vue&type=template&id=427a6eec& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AddConvenienceComponent.vue?vue&type=template&id=427a6eec&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddConvenienceComponent_vue_vue_type_template_id_427a6eec___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddConvenienceComponent_vue_vue_type_template_id_427a6eec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
 
 /***/ }),
 

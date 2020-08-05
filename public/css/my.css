@@ -8,10 +8,10 @@ table {
 }
 
 .frame{
-    width: 250px;
+    width: 270px;
     height: 200px;
-    margin: 20px;
-    border: 1px solid black;
+    margin: 0px;
+    /*border: 1px solid black;*/
     position: relative;
 }
 img {

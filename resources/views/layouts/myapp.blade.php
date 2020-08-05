@@ -23,7 +23,7 @@
 {{--    <script src="http://code.jquery.com/jquery-3.5.1.js"></script>--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="../js/js_awesome/all.js"></script>
-
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
 
 </head>
 <body>
@@ -46,6 +46,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Объявления </a>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -56,6 +59,13 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('pageAddHouse') }}">Добавить квартиру</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('pageAddUpdateParameterOrConvenience') }}">Изменить список параметров и удобств </a>
+                            </li>
+{{--                        --}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

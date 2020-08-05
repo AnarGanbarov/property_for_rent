@@ -20,9 +20,9 @@ class CreateHousesTable extends Migration
             $table->text("description");
             $table->integer("count_room");
             $table->integer("apartment_area");
-            $table->double("x_coordinate");
-            $table->double("y_coordinate");
-            $table->boolean("bought")->default(false);
+            $table->double("x_coordinate")->nullable();
+            $table->double("y_coordinate")->nullable();
+            $table->boolean("rent")->default(false);
             $table->integer("cost");
             $table->timestamps();
 

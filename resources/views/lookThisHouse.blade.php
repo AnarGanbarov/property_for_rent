@@ -3,10 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <input type="text" hidden id="x_coordinate" value="{{$house['x_coordinate']}}">
+        <input type="text" hidden id="y_coordinate" value="{{$house['y_coordinate']}}">
 
         <div class="col-md-2">
             <h3>Параметры</h3>
+            @foreach($house['parameters'] as $parameter)
+                <span class="badge badge-pill badge-info" style="padding: 10px; color: white; font-size: 12px; margin: 5px;">{{$parameter['name']}}</span>
+            @endforeach
+
             <h3>Удобства</h3>
+            @foreach($house['conveniences'] as $convenience)
+                <span class="badge badge-pill badge-success" style="padding: 10px; color: white; font-size: 12px; margin: 5px;">{{$convenience['name']}}</span>
+            @endforeach
         </div>
 
         <div class="col-md-8" style="height: 400px; outline: 1px solid #c1c1c1;">
@@ -49,23 +58,37 @@
 
         <div class="col-md-2">
             <h3>Описание</h3>
+            <p>
+                {{$house['description']}}
+            </p>
         </div>
 
     </div>
 
 </div>
 
-<script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
-<script type="text/javascript">
-    var map;
 
+<script type="application/javascript">
+    var map;
+    var x = document.getElementById('x_coordinate').value;
+    var y = document.getElementById('y_coordinate').value;
+    var was_null = false;
+    if( !(x && y))
+    {
+        x =  55.751727;
+        y =  37.621543;
+        was_null = true;
+    }
     DG.then(function () {
         map = DG.map('map', {
-            center: [54.98, 82.89],
+            center: [x, y],
             zoom: 13
         });
+        if( !was_null )
+        {
+            DG.marker([x, y]).addTo(map).bindPopup('Вы кликнули по мне w!');
+        }
 
-        DG.marker([54.98, 82.89]).addTo(map).bindPopup('Вы кликнули по мне!');
     });
 </script>
 

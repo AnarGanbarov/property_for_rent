@@ -36,10 +36,11 @@ class HouseController extends Controller
         $thisHouses = House::find($request->id);
         $parameters = Parameter::all()->toArray();
         $conveniences = Convenience::all()->toArray();
-        $house['parameters'] = $thisHouses->parameters()->get()->toArray();
-        $house['conveniences'] = $thisHouses->conveniences()->get()->toArray();
 
         $house = $thisHouses->toArray();
+
+        $house['parameters'] = $thisHouses->parameters()->get()->toArray();
+        $house['conveniences'] = $thisHouses->conveniences()->get()->toArray();
         $house['images'] = $thisHouses->photos()->get()->toArray();
 
         return view('lookThisHouse', [
@@ -52,12 +53,6 @@ class HouseController extends Controller
 
     public function add(Request $request)
     {
-        /*
-        $path = $request->file('url_image')->storePubliclyAs('project_pictures','img_'.$projectId.'.jpg','public');
-        $projectUpdateUlrImage = Project::find($projectId);
-        $projectUpdateUlrImage->url_image = '/project_pictures/img_'.$projectId.'.jpg';
-        $projectUpdateUlrImage->save();
-        */
         $house = Auth::user()->houses()->create([
             'address' => $request->address,
             'description' => $request->description,
@@ -80,6 +75,17 @@ class HouseController extends Controller
             ]);
         }
 
+        for ($i = 0; $i < count($request['parameters']); $i++)
+        {
+            $house->parameters()->attach($request['parameters'][$i]);
+        }
+
+        for ($i = 0; $i < count($request['conveniences']); $i++)
+        {
+            $house->conveniences()->attach($request['conveniences'][$i]);
+        }
+
+
         return redirect("/");
     }
 
@@ -88,9 +94,16 @@ class HouseController extends Controller
         return view('home');
     }
 
-    public function buy(Request $request)
+    public function setHouseAsRent(Request $request)
     {
-        return view('home');
+        House::find($request->id)->update(['rent' => true]);
+        return redirect("/");
+    }
+
+    public function setOffHouseAsRent(Request $request)
+    {
+        House::find($request->id)->update(['rent' => false]);
+        return redirect("/");
     }
 
     public function delete(Request $request)

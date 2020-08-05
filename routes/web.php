@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function (){
+    return redirect('/');
+})->name('home');
 
 
 
@@ -27,8 +29,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pageAddHouse', function () {
     $parameters = Parameter::all()->sortBy('created_at');
     $conveniences = Convenience::all()->sortBy('created_at');
-
-
 
     return view('admin.addHouse',[
         'parameters' => ($parameters),
@@ -52,6 +52,8 @@ Route::post('/addHouse', 'HouseController@add')->name('addHouse');
 Route::get('/','HouseController@getAll')->name('getAll');
 
 Route::get('/getHouseNumber_{id}','HouseController@getThisHouse')->name('getThisHouse');
+Route::post('/setHouseAsRent_{id}','HouseController@setHouseAsRent')->name('setHouseAsRent');
+Route::post('/setOffHouseAsRent_{id}','HouseController@setOffHouseAsRent')->name('setOffHouseAsRent');
 
 
 //Route::get('/getAllParameter', 'ParameterController@getAll')->name('parameterGetAll');
@@ -63,3 +65,6 @@ Route::post('/deleteParameter', 'ParameterController@delete')->name('parameterDe
 Route::post('/addConvenience', 'ConvenienceController@add')->name('convenienceAdd');
 Route::post('/updateConvenience', 'ConvenienceController@update')->name('convenienceUpdate');
 Route::post('/deleteConvenience', 'ConvenienceController@delete')->name('convenienceDelete');
+
+// API
+
