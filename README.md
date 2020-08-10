@@ -1,8 +1,11 @@
-1 - выполнить " composer install " <br>
-2 - переименовать .env.example в .env <br>
-3 - в .env вставить учетные данные вашей базы данных <br>
-4 - выполнить " php artisan migrate " <br>
-5 - запустить сервер " php artisan serve " 
+
+1 - переименовать .env.example в .env <br>
+2 - в .env вставить учетные данные вашей базы данных <br>
+3 - выполнить " composer install " <br>
+4 - выполнить php artisan key:generate
+5 - выполнить " php artisan migrate " <br>
+6 - запустить сервер " php artisan serve " 
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
