@@ -2,7 +2,7 @@
 1 - переименовать .env.example в .env <br>
 2 - в .env вставить учетные данные вашей базы данных <br>
 3 - выполнить " composer install " <br>
-4 - выполнить php artisan key:generate
+4 - выполнить php artisan key:generate <br>
 5 - выполнить " php artisan migrate " <br>
 6 - запустить сервер " php artisan serve " 
 
