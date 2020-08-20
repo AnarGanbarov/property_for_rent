@@ -15,8 +15,8 @@ class CreateHouseParameterTable extends Migration
     {
         Schema::create('house_parameter', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("house_id");
-            $table->bigInteger("parameter_id");
+            $table->unsignedBigInteger("house_id");
+            $table->unsignedBigInteger("parameter_id");
             $table->timestamps();
 
             $table->foreign("house_id")->references("id")->on("houses");

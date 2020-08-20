@@ -15,8 +15,8 @@ class CreateConvenienceHouseTable extends Migration
     {
         Schema::create('convenience_house', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("convenience_id");
-            $table->bigInteger("house_id");
+            $table->unsignedBigInteger("convenience_id");
+            $table->unsignedBigInteger("house_id");
             $table->timestamps();
 
             $table->foreign("convenience_id")->references("id")->on("conveniences");
